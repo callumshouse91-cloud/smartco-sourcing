@@ -23,16 +23,16 @@ export default function StatCard({
   return (
     <LoadingReveal loading={loading} skeleton={<StatCardSkeleton />}>
       <FadeIn>
-        <div className="relative rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
+        <div className="card relative p-5">
           <Icon
             size={24}
             className="absolute top-5 right-5"
             style={{ color: iconColor }}
           />
-          <p className="font-display text-[36px] leading-none font-bold text-white">
+          <p className="font-display text-[36px] leading-none font-bold text-navy">
             <AnimatedNumber value={value} />
           </p>
-          <p className="mt-2 text-sm text-slate-400">{label}</p>
+          <p className="mt-2 text-sm text-gray-600">{label}</p>
           <div className="mt-1.5 text-xs text-slate-400">{sub}</div>
         </div>
       </FadeIn>

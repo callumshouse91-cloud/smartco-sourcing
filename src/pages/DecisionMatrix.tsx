@@ -26,10 +26,10 @@ export default function DecisionMatrix() {
       {/* Page header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="font-display text-[28px] font-bold text-white">
+          <h1 className="font-display text-[28px] font-bold text-navy">
             Decision Matrix
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-gray-600">
             Weighted evaluation across 247 requirements | Fully auditable |
             Export ready
           </p>

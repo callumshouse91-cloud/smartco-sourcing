@@ -10,23 +10,23 @@ interface EvaluationSidebarProps {
 export default function EvaluationSidebar({ data }: EvaluationSidebarProps) {
   const badgeClass =
     data.recommendation.tone === 'recommend'
-      ? 'bg-mint-500/15 text-mint-300'
+      ? 'bg-mint-500/15 text-mint-500'
       : data.recommendation.tone === 'challenge'
-        ? 'bg-amber-500/15 text-amber-400'
-        : 'bg-smartco-500/15 text-smartco-400'
+        ? 'bg-amber-500/15 text-amber-600'
+        : 'bg-smartco-500/15 text-smartco-500'
 
   return (
     <div className="space-y-6">
-      <div className="rounded-xl border border-mint-300/20 bg-[#1a2d4a] p-5">
-        <h3 className="mb-4 text-[15px] font-bold text-mint-300">
+      <div className="card border-l-[3px] border-l-mint-300 bg-[#f0fdf9] p-5">
+        <h3 className="mb-4 text-[15px] font-bold text-mint-500">
           AI-Identified Strengths
         </h3>
         <ul className="space-y-3">
           {data.strengths.map((item) => (
-            <li key={item} className="flex gap-2.5 text-sm text-slate-300">
+            <li key={item} className="flex gap-2.5 text-sm text-gray-600">
               <CheckCircle2
                 size={16}
-                className="mt-0.5 shrink-0 text-mint-300"
+                className="mt-0.5 shrink-0 text-mint-500"
               />
               {item}
             </li>
@@ -34,16 +34,16 @@ export default function EvaluationSidebar({ data }: EvaluationSidebarProps) {
         </ul>
       </div>
 
-      <div className="rounded-xl border border-amber-500/20 bg-[#1a2d4a] p-5">
-        <h3 className="mb-4 text-[15px] font-bold text-amber-400">
+      <div className="card border-l-[3px] border-l-amber-500 bg-[#fffbf0] p-5">
+        <h3 className="mb-4 text-[15px] font-bold text-amber-600">
           Risks &amp; Gaps
         </h3>
         <ul className="space-y-3">
           {data.risks.map((item) => (
-            <li key={item} className="flex gap-2.5 text-sm text-slate-300">
+            <li key={item} className="flex gap-2.5 text-sm text-gray-600">
               <AlertTriangle
                 size={16}
-                className="mt-0.5 shrink-0 text-amber-400"
+                className="mt-0.5 shrink-0 text-amber-500"
               />
               {item}
             </li>
@@ -51,14 +51,14 @@ export default function EvaluationSidebar({ data }: EvaluationSidebarProps) {
         </ul>
       </div>
 
-      <div className="rounded-xl border border-smartco-500/40 bg-gradient-to-br from-smartco-500/10 to-mint-300/10 p-5">
-        <h3 className="text-[15px] font-bold text-white">AI Recommendation</h3>
+      <div className="card border border-smartco-500 bg-[#f0f6ff] p-5">
+        <h3 className="text-[15px] font-bold text-navy">AI Recommendation</h3>
         <PulseBadge
           className={`mt-3 inline-block rounded-full px-3 py-1 text-xs font-bold tracking-wide ${badgeClass}`}
         >
           {data.recommendation.badge}
         </PulseBadge>
-        <p className="mt-3 text-sm leading-relaxed text-slate-300">
+        <p className="mt-3 text-sm leading-relaxed text-gray-600">
           <TypewriterText text={data.recommendation.text} speed={10} />
         </p>
         <button

@@ -32,12 +32,12 @@ export function LoadingReveal({ loading, skeleton, children }: LoadingRevealProp
 }
 
 export function Shimmer({ className = '' }: { className?: string }) {
-  return <div className={`shimmer rounded-md bg-slate-700/60 ${className}`} />
+  return <div className={`shimmer rounded-md bg-border/60 ${className}`} />
 }
 
 export function StatCardSkeleton() {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
+    <div className="card p-5">
       <Shimmer className="h-9 w-20" />
       <Shimmer className="mt-3 h-4 w-32" />
       <Shimmer className="mt-2 h-3 w-24" />
@@ -47,7 +47,7 @@ export function StatCardSkeleton() {
 
 export function TableSkeleton({ rows = 6 }: { rows?: number }) {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
+    <div className="card p-5">
       <Shimmer className="mb-4 h-5 w-48" />
       <div className="space-y-3">
         {Array.from({ length: rows }).map((_, i) => (

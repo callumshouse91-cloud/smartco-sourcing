@@ -1,8 +1,7 @@
 export default function DemoBanner() {
   return (
-    <div className="flex h-8 shrink-0 items-center justify-center bg-yellow-brand px-4 text-center text-xs font-semibold text-navy">
-      ⚡ LIVE DEMO — Heathrow Airport Technology Platform Sourcing — SmartCo AI
-      Sourcing Control Tower
+    <div className="flex h-[30px] shrink-0 items-center justify-center bg-smartco-500 px-4 text-center text-xs text-white">
+      ⚡ SmartCo AI Sourcing Control Tower · Heathrow Airport · Live Demo
     </div>
   )
 }

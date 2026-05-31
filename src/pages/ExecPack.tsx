@@ -38,10 +38,10 @@ export default function ExecPack() {
       {/* Page header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="font-display text-[28px] font-bold text-white">
+          <h1 className="font-display text-[28px] font-bold text-navy">
             Executive Pack Generator
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-gray-600">
             AI-generated board-ready outputs — review, edit, and export in minutes
           </p>
         </div>

@@ -24,7 +24,7 @@ const milestones = [
 function StatusDot({ status }: { status: 'complete' | 'current' | 'upcoming' }) {
   if (status === 'complete') {
     return (
-      <span className="flex h-5 w-5 shrink-0 items-center justify-center text-mint-300">
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center text-mint-500">
         ✓
       </span>
     )
@@ -37,7 +37,7 @@ function StatusDot({ status }: { status: 'complete' | 'current' | 'upcoming' }) 
     )
   }
   return (
-    <span className="flex h-5 w-5 shrink-0 items-center justify-center text-slate-600">
+    <span className="flex h-5 w-5 shrink-0 items-center justify-center text-slate-400">
       ○
     </span>
   )
@@ -45,8 +45,8 @@ function StatusDot({ status }: { status: 'complete' | 'current' | 'upcoming' }) 
 
 export default function MilestonesTimeline() {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
-      <h3 className="mb-4 text-[15px] font-bold text-white">Key Milestones</h3>
+    <div className="card p-5">
+      <h3 className="mb-4 text-[15px] font-bold text-navy">Key Milestones</h3>
       <div className="space-y-3">
         {milestones.map((m) => (
           <div key={m.label} className="flex items-start gap-3">
@@ -55,10 +55,10 @@ export default function MilestonesTimeline() {
               <p
                 className={
                   m.status === 'current'
-                    ? 'text-sm font-medium text-white'
+                    ? 'text-sm font-medium text-navy'
                     : m.status === 'complete'
-                      ? 'text-sm text-slate-400'
-                      : 'text-sm text-slate-500'
+                      ? 'text-sm text-gray-600'
+                      : 'text-sm text-slate-400'
                 }
               >
                 <span className="font-medium">{m.date}</span>

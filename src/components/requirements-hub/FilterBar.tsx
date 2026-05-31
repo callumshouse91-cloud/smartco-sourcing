@@ -34,7 +34,7 @@ export default function FilterBar({
             className={
               activeFilter === label
                 ? 'rounded-full bg-smartco-500 px-3.5 py-1.5 text-xs font-medium text-white'
-                : 'rounded-full border border-slate-700/60 bg-[#1a2d4a] px-3.5 py-1.5 text-xs font-medium text-slate-400 transition-colors hover:border-slate-600 hover:text-white'
+                : 'rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-gray-600 transition-colors hover:border-smartco-500/30 hover:text-navy'
             }
           >
             {label} ({count})
@@ -44,14 +44,14 @@ export default function FilterBar({
       <div className="relative w-full lg:w-72">
         <Search
           size={16}
-          className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-slate-500"
+          className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
         />
         <input
           type="text"
           placeholder="Search requirements..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full rounded-lg border border-slate-700/60 bg-[#1a2d4a] py-2 pr-3 pl-9 text-sm text-white placeholder:text-slate-500 focus:border-smartco-500/50 focus:outline-none"
+          className="w-full rounded-lg border border-border bg-white py-2 pr-3 pl-9 text-sm text-navy placeholder:text-gray-400 focus:border-smartco-500 focus:outline-none"
         />
       </div>
     </div>

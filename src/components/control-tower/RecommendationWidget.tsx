@@ -14,7 +14,7 @@ function CircularProgress({ value }: { value: number }) {
         cy={size / 2}
         r={radius}
         fill="none"
-        stroke="#334155"
+        stroke="#e0e4ec"
         strokeWidth={stroke}
       />
       <circle
@@ -34,7 +34,7 @@ function CircularProgress({ value }: { value: number }) {
         y="50%"
         textAnchor="middle"
         dominantBaseline="central"
-        fill="white"
+        fill="#0a1628"
         fontSize="22"
         fontWeight="700"
         fontFamily="Outfit, system-ui, sans-serif"
@@ -55,16 +55,16 @@ const criteria = ['Highest Score', 'Best Aviation Fit', 'Lowest Risk']
 
 export default function RecommendationWidget() {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
-      <h3 className="mb-5 text-[15px] font-bold text-white">
+    <div className="card p-5">
+      <h3 className="mb-5 text-[15px] font-bold text-navy">
         AI Recommendation Status
       </h3>
 
       <CircularProgress value={86} />
 
       <div className="mt-4 text-center">
-        <p className="font-display text-lg font-semibold text-white">Accenture</p>
-        <PulseBadge className="mt-1.5 inline-block rounded-full bg-mint-500/15 px-3 py-0.5 text-[11px] font-bold tracking-wide text-mint-300">
+        <p className="font-display text-lg font-semibold text-navy">Accenture</p>
+        <PulseBadge className="mt-1.5 inline-block rounded-full bg-mint-500/15 px-3 py-0.5 text-[11px] font-bold tracking-wide text-mint-500">
           RECOMMEND
         </PulseBadge>
       </div>
@@ -73,17 +73,17 @@ export default function RecommendationWidget() {
         {criteria.map((c) => (
           <span
             key={c}
-            className="rounded-md border border-slate-600/50 bg-[#0f1e35] px-2.5 py-1 text-[11px] text-slate-400"
+            className="rounded-md border border-[#e0e4ec] bg-[#f4f6fb] px-2.5 py-1 text-[11px] text-slate-400"
           >
             {c}
           </span>
         ))}
       </div>
 
-      <div className="mt-5 overflow-hidden rounded-lg border border-slate-700/40">
+      <div className="mt-5 overflow-hidden rounded-lg border border-[#e0e4ec]">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="border-b border-slate-700/40 bg-[#0f1e35]/80 text-slate-500">
+            <tr className="border-b border-[#e0e4ec] bg-[#f4f6fb] text-slate-400">
               <th className="px-3 py-2 font-medium">Rank</th>
               <th className="px-3 py-2 font-medium">Supplier</th>
               <th className="px-3 py-2 font-medium">Score</th>
@@ -94,21 +94,21 @@ export default function RecommendationWidget() {
             {rankings.map((row) => (
               <tr
                 key={row.rank}
-                className="border-b border-slate-700/30 last:border-0"
+                className="border-b border-[#e0e4ec] last:border-0"
               >
                 <td className="px-3 py-2.5 text-slate-400">{row.rank}</td>
-                <td className="px-3 py-2.5 font-medium text-white">
+                <td className="px-3 py-2.5 font-medium text-navy">
                   {row.supplier}
                 </td>
-                <td className="px-3 py-2.5 text-white">{row.score}</td>
+                <td className="px-3 py-2.5 text-gray-600">{row.score}</td>
                 <td className="px-3 py-2.5">
                   <span
                     className={
                       row.statusType === 'recommend'
-                        ? 'text-mint-300'
+                        ? 'text-mint-500'
                         : row.statusType === 'challenge'
                           ? 'text-yellow-brand'
-                          : 'text-slate-400'
+                          : 'text-gray-600'
                     }
                   >
                     {row.status}

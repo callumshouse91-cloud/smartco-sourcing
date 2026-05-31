@@ -3,7 +3,7 @@ import { mobileNavItems } from '../../config/navigation'
 
 export default function MobileTabBar() {
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-slate-700/50 bg-navy md:hidden">
+    <nav className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-border bg-white md:hidden">
       {mobileNavItems.map(({ path, icon: Icon }) => (
         <NavLink
           key={path}
@@ -12,12 +12,12 @@ export default function MobileTabBar() {
           className={({ isActive }) =>
             [
               'flex flex-1 items-center justify-center py-3',
-              isActive ? 'text-mint-300' : 'text-slate-500',
+              isActive ? 'text-smartco-500' : 'text-slate-400',
             ].join(' ')
           }
         >
           {({ isActive }) => (
-            <Icon size={22} className={isActive ? 'text-mint-300' : 'text-slate-500'} />
+            <Icon size={22} className={isActive ? 'text-smartco-500' : 'text-slate-400'} />
           )}
         </NavLink>
       ))}

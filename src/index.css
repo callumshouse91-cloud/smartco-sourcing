@@ -3,9 +3,18 @@
 
 body {
   margin: 0;
+  background-color: #f4f6fb;
+  color: #0a1628;
   font-family: 'DM Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e4ec;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 @keyframes shimmer {
@@ -20,9 +29,9 @@ body {
 .shimmer {
   background: linear-gradient(
     90deg,
-    rgb(51 65 85 / 0.4) 0%,
-    rgb(71 85 105 / 0.7) 50%,
-    rgb(51 65 85 / 0.4) 100%
+    rgb(224 228 236 / 0.5) 0%,
+    rgb(244 246 251 / 0.9) 50%,
+    rgb(224 228 236 / 0.5) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
@@ -31,7 +40,7 @@ body {
 .typewriter-cursor {
   display: inline-block;
   margin-left: 1px;
-  color: #43e6a2;
+  color: #0065fc;
   animation: cursor-blink 0.8s step-end infinite;
 }
 
@@ -43,4 +52,12 @@ body {
   50% {
     opacity: 0;
   }
+}
+
+.topbar-motif-blue {
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.topbar-motif-mint {
+  clip-path: polygon(0 0, 75% 0, 100% 100%, 0 100%);
 }

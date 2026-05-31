@@ -239,22 +239,22 @@ export const auditEvents = [
 ]
 
 export function scoreColorClass(value: number): string {
-  if (value >= 90) return 'text-mint-300'
-  if (value >= 75) return 'text-white'
-  if (value >= 60) return 'text-amber-400'
+  if (value >= 90) return 'text-mint-500 font-bold'
+  if (value >= 75) return 'text-navy'
+  if (value >= 60) return 'text-amber-500'
   return 'text-coral-500'
 }
 
 export function recommendationBadgeClass(rec: Recommendation): string {
   switch (rec) {
     case 'RECOMMEND':
-      return 'bg-mint-500/15 text-mint-300 border-mint-300/30'
+      return 'bg-mint-500/15 text-mint-500 border-mint-500/30'
     case 'SHORTLIST':
-      return 'bg-smartco-500/15 text-smartco-400 border-smartco-500/30'
+      return 'bg-smartco-500/15 text-smartco-500 border-smartco-500/30'
     case 'CHALLENGE':
-      return 'bg-amber-500/15 text-amber-400 border-amber-500/30'
+      return 'bg-amber-500/15 text-amber-500 border-amber-500/30'
     case 'HOLD':
-      return 'bg-slate-600/20 text-slate-400 border-slate-600/40'
+      return 'bg-gray-100 text-gray-600 border-border'
     case 'REJECT':
       return 'bg-coral-500/15 text-coral-500 border-coral-500/30'
   }
@@ -263,9 +263,9 @@ export function recommendationBadgeClass(rec: Recommendation): string {
 export function riskBadgeClass(risk: 'Low' | 'Med' | 'High'): string {
   switch (risk) {
     case 'Low':
-      return 'text-mint-300'
+      return 'text-mint-500'
     case 'Med':
-      return 'text-amber-400'
+      return 'text-amber-500'
     case 'High':
       return 'text-coral-500'
   }

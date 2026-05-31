@@ -1,3 +1,6 @@
+import AnimatedProgressBar from '../ui/AnimatedProgressBar'
+import { FadeIn, TableSkeleton, useLoadingReveal } from '../ui/Loading'
+
 export type Priority = 'Must Have' | 'Should Have' | 'Nice to Have'
 export type AIStatus = 'Clear' | 'Vague' | 'Conflicting'
 
@@ -79,9 +82,9 @@ export const requirements: Requirement[] = [
 
 function PriorityBadge({ priority }: { priority: Priority }) {
   const styles = {
-    'Must Have': 'bg-coral-500/15 text-coral-500 border-coral-500/30',
-    'Should Have': 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-    'Nice to Have': 'bg-slate-600/20 text-slate-400 border-slate-600/40',
+    'Must Have': 'bg-coral-500/10 text-coral-500 border-coral-500/30',
+    'Should Have': 'bg-amber-500/10 text-amber-600 border-amber-500/30',
+    'Nice to Have': 'bg-gray-100 text-gray-600 border-border',
   }
 
   return (
@@ -96,19 +99,17 @@ function PriorityBadge({ priority }: { priority: Priority }) {
 function AIStatusBadge({ status }: { status: AIStatus }) {
   if (status === 'Clear') {
     return (
-      <span className="text-mint-300">
+      <span className="text-mint-500">
         ✓ Clear
       </span>
     )
   }
   return (
-    <span className="text-amber-400">
+    <span className="text-amber-500">
       ⚠ {status}
     </span>
   )
 }
-import AnimatedProgressBar from '../ui/AnimatedProgressBar'
-import { FadeIn, TableSkeleton, useLoadingReveal } from '../ui/Loading'
 
 interface RequirementsTableProps {
   rows: Requirement[]
@@ -123,14 +124,14 @@ export default function RequirementsTable({ rows }: RequirementsTableProps) {
 
   return (
     <FadeIn>
-      <div className="overflow-hidden rounded-xl border border-slate-700/50 bg-[#1a2d4a]">
-        <p className="px-4 pt-3 text-right text-[11px] text-slate-500 md:hidden">
+      <div className="card overflow-hidden">
+        <p className="px-4 pt-3 text-right text-[11px] text-gray-400 md:hidden">
           → scroll
         </p>
         <div className="overflow-x-auto">
         <table className="w-full min-w-[900px] text-left text-sm">
           <thead>
-            <tr className="border-b border-slate-700/50 bg-[#0f1e35]/60 text-xs font-medium text-slate-500">
+            <tr className="border-b border-border bg-surface text-[11px] font-medium uppercase text-gray-600">
               <th className="px-4 py-3">ID</th>
               <th className="px-4 py-3">Requirement</th>
               <th className="px-4 py-3">Category</th>
@@ -140,18 +141,20 @@ export default function RequirementsTable({ rows }: RequirementsTableProps) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
+            {rows.map((row, index) => (
               <tr
                 key={row.id}
-                className="border-b border-slate-700/30 transition-colors last:border-0 hover:bg-[#0f1e35]/40"
+                className={`border-b border-border transition-colors last:border-0 hover:bg-surface ${
+                  index % 2 === 0 ? 'bg-white' : 'bg-[#f9fafc]'
+                }`}
               >
-                <td className="px-4 py-3.5 font-mono text-xs text-smartco-400">
+                <td className="px-4 py-3.5 font-mono text-xs text-navy">
                   {row.id}
                 </td>
-                <td className="max-w-md px-4 py-3.5 text-slate-300">
+                <td className="max-w-md px-4 py-3.5 text-navy">
                   {row.text}
                 </td>
-                <td className="px-4 py-3.5 text-slate-400">{row.category}</td>
+                <td className="px-4 py-3.5 text-navy">{row.category}</td>
                 <td className="px-4 py-3.5">
                   <PriorityBadge priority={row.priority} />
                 </td>
@@ -162,10 +165,10 @@ export default function RequirementsTable({ rows }: RequirementsTableProps) {
                   <div className="flex items-center gap-2">
                     <AnimatedProgressBar
                       value={row.trace}
-                      className="h-1.5 w-16 overflow-hidden rounded-full bg-slate-700"
+                      className="h-1.5 w-16 overflow-hidden rounded-full bg-border"
                       barClassName="h-full rounded-full bg-smartco-500"
                     />
-                    <span className="text-xs font-medium text-white">
+                    <span className="text-xs font-medium text-navy">
                       {row.trace}%
                     </span>
                   </div>

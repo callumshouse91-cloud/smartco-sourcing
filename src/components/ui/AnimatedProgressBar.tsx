@@ -8,7 +8,7 @@ interface AnimatedProgressBarProps {
 
 export default function AnimatedProgressBar({
   value,
-  className = 'h-1.5 overflow-hidden rounded-full bg-slate-700',
+  className = 'h-1.5 overflow-hidden rounded-full bg-border',
   barClassName = 'h-full rounded-full bg-smartco-500',
 }: AnimatedProgressBarProps) {
   const [width, setWidth] = useState(0)

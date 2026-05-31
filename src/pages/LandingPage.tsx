@@ -36,81 +36,51 @@ interface ComparisonRow {
 }
 
 const comparisonRows: ComparisonRow[] = [
-  {
-    capability: 'Manage supplier responses',
-    traditional: 'yes',
-    ariba: 'yes',
-    smartco: 'yes',
-  },
-  {
-    capability: 'AI comparison of suppliers',
-    traditional: 'no',
-    ariba: 'basic',
-    smartco: 'yes',
-  },
-  {
-    capability: 'Requirement traceability',
-    traditional: 'manual',
-    ariba: 'partial',
-    smartco: 'yes',
-  },
-  {
-    capability: 'Executive summaries',
-    traditional: 'manual',
-    ariba: 'limited',
-    smartco: 'ai',
-  },
-  {
-    capability: 'Lessons learned repository',
-    traditional: 'no',
-    ariba: 'no',
-    smartco: 'yes',
-  },
-  {
-    capability: 'Future procurement intelligence',
-    traditional: 'no',
-    ariba: 'limited',
-    smartco: 'yes',
-  },
-  {
-    capability: 'Vendor management post-award',
-    traditional: 'no',
-    ariba: 'yes',
-    smartco: 'yes',
-  },
+  { capability: 'Manage supplier responses', traditional: 'yes', ariba: 'yes', smartco: 'yes' },
+  { capability: 'AI comparison of suppliers', traditional: 'no', ariba: 'basic', smartco: 'yes' },
+  { capability: 'Requirement traceability', traditional: 'manual', ariba: 'partial', smartco: 'yes' },
+  { capability: 'Executive summaries', traditional: 'manual', ariba: 'limited', smartco: 'ai' },
+  { capability: 'Lessons learned repository', traditional: 'no', ariba: 'no', smartco: 'yes' },
+  { capability: 'Future procurement intelligence', traditional: 'no', ariba: 'limited', smartco: 'yes' },
+  { capability: 'Vendor management post-award', traditional: 'no', ariba: 'yes', smartco: 'yes' },
 ]
 
 function ComparisonCell({ value }: { value: CellValue }) {
-  if (value === 'yes') {
-    return <span className="font-semibold text-mint-300">✓</span>
-  }
-  if (value === 'no') {
-    return <span className="font-semibold text-coral-500">✗</span>
-  }
-  if (value === 'ai') {
-    return <span className="text-mint-300">✓ AI-generated</span>
-  }
+  if (value === 'yes') return <span className="font-semibold text-mint-500">✓</span>
+  if (value === 'no') return <span className="font-semibold text-coral-500">✗</span>
+  if (value === 'ai') return <span className="text-mint-500">✓ AI-generated</span>
   const labels: Record<string, string> = {
     basic: 'Basic',
     partial: 'Partial',
     manual: 'Manual',
     limited: 'Limited',
   }
-  return <span className="text-slate-400">{labels[value]}</span>
+  return <span className="text-gray-600">{labels[value]}</span>
 }
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-navy text-white">
-      {/* Hero */}
-      <section className="flex min-h-screen flex-col items-center justify-center px-6 py-16">
-        <p className="text-[11px] font-medium tracking-[0.15em] text-mint-300 uppercase">
+    <div className="min-h-screen bg-surface text-navy">
+      <header className="border-b border-border bg-white px-6 py-4">
+        <img
+          src="/smartco-logo.png"
+          alt="SmartCo"
+          className="h-7 w-auto"
+          onError={(e) => {
+            e.currentTarget.onerror = null
+            e.currentTarget.src = '/smartco-logo.svg'
+          }}
+        />
+      </header>
+
+      <section className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-6 py-16">
+        <p className="text-[11px] font-medium tracking-[0.15em] text-mint-500 uppercase">
           SmartCo × Heathrow Airport
         </p>
-        <h1 className="mt-6 max-w-4xl text-center font-display text-4xl leading-tight font-bold md:text-[64px]">
+        <h1 className="mt-6 max-w-4xl text-center font-display text-4xl leading-tight font-bold text-navy md:text-[64px]">
           AI Enabled Strategic Sourcing
         </h1>
-        <p className="mt-6 max-w-[600px] text-center text-lg text-slate-400 md:text-2xl">
+        <p className="mt-6 max-w-[600px] text-center text-lg text-gray-600 md:text-2xl">
           Run the RFP. Improve the decision. Keep the intelligence.
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -122,7 +92,7 @@ export default function LandingPage() {
           </Link>
           <Link
             to="/ai-evaluation"
-            className="rounded-lg border border-white px-8 py-3.5 text-center font-display text-base font-semibold text-white transition-colors hover:bg-white/5"
+            className="rounded-lg border border-smartco-500 bg-white px-8 py-3.5 text-center font-display text-base font-semibold text-smartco-500 transition-colors hover:bg-smartco-50"
           >
             Watch 90-sec Demo
           </Link>
@@ -136,57 +106,50 @@ export default function LandingPage() {
             <div
               key={stat.label}
               className={`flex flex-col items-center px-8 sm:px-12 ${
-                i > 0 ? 'sm:border-l sm:border-slate-700' : ''
+                i > 0 ? 'sm:border-l sm:border-border' : ''
               }`}
             >
-              <p className="font-display text-3xl font-bold md:text-4xl">
+              <p className="font-display text-3xl font-bold text-smartco-500 md:text-4xl">
                 <AnimatedNumber value={stat.value} />
               </p>
-              <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
+              <p className="mt-1 text-sm text-gray-600">{stat.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Feature strip */}
-      <section className="border-t border-slate-800 bg-[#0a1628] px-6 py-16">
+      <section className="border-t border-border bg-white px-6 py-16">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-3">
           {features.map(({ icon: Icon, iconColor, title, description }) => (
             <div key={title} className="text-center md:text-left">
               <Icon size={32} style={{ color: iconColor }} className="mx-auto md:mx-0" />
-              <h3 className="mt-4 font-display text-lg font-semibold">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                {description}
-              </p>
+              <h3 className="mt-4 font-display text-lg font-semibold text-navy">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-600">{description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Comparison table */}
-      <section className="border-t border-slate-800 px-6 py-16">
+      <section className="border-t border-border px-6 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-center font-display text-2xl font-bold md:text-3xl">
-            SmartCo doesn&apos;t replace your procurement system. We make it
-            smarter.
+          <h2 className="text-center font-display text-2xl font-bold text-navy md:text-3xl">
+            SmartCo doesn&apos;t replace your procurement system. We make it smarter.
           </h2>
-          <div className="mt-10 overflow-x-auto rounded-xl border border-slate-700/50">
-            <p className="py-2 text-center text-[11px] text-slate-500 md:hidden">
-              → scroll
-            </p>
+          <div className="card mt-10 overflow-x-auto">
+            <p className="py-2 text-center text-[11px] text-slate-400 md:hidden">→ scroll</p>
             <table className="w-full min-w-[640px] text-left text-sm">
               <thead>
-                <tr className="border-b border-slate-700/50 bg-[#0f1e35]">
-                  <th className="px-5 py-4 font-medium text-slate-400">
+                <tr className="border-b border-border bg-surface">
+                  <th className="px-5 py-4 text-[11px] font-medium tracking-wide text-gray-600 uppercase">
                     Capability
                   </th>
-                  <th className="px-5 py-4 font-medium text-slate-400">
+                  <th className="px-5 py-4 text-[11px] font-medium tracking-wide text-gray-600 uppercase">
                     Traditional RFP
                   </th>
-                  <th className="px-5 py-4 font-medium text-slate-400">
+                  <th className="px-5 py-4 text-[11px] font-medium tracking-wide text-gray-600 uppercase">
                     SAP Ariba
                   </th>
-                  <th className="bg-smartco-500 px-5 py-4 font-semibold text-white">
+                  <th className="bg-smartco-500 px-5 py-4 text-[11px] font-semibold tracking-wide text-white uppercase">
                     SmartCo AI Layer
                   </th>
                 </tr>
@@ -195,22 +158,18 @@ export default function LandingPage() {
                 {comparisonRows.map((row, i) => (
                   <tr
                     key={row.capability}
-                    className={
-                      i % 2 === 0
-                        ? 'bg-[#1a2d4a]'
-                        : 'bg-[#162540]'
-                    }
+                    className={i % 2 === 0 ? 'bg-white' : 'bg-[#f9fafc]'}
                   >
-                    <td className="px-5 py-3.5 font-medium text-slate-300">
+                    <td className="border-b border-border px-5 py-3.5 font-medium text-navy">
                       {row.capability}
                     </td>
-                    <td className="px-5 py-3.5">
+                    <td className="border-b border-border px-5 py-3.5">
                       <ComparisonCell value={row.traditional} />
                     </td>
-                    <td className="px-5 py-3.5">
+                    <td className="border-b border-border px-5 py-3.5">
                       <ComparisonCell value={row.ariba} />
                     </td>
-                    <td className="bg-smartco-500/10 px-5 py-3.5">
+                    <td className="border-b border-border bg-smartco-50 px-5 py-3.5">
                       <ComparisonCell
                         value={
                           row.capability === 'Vendor management post-award'
@@ -219,7 +178,7 @@ export default function LandingPage() {
                         }
                       />
                       {row.capability === 'Vendor management post-award' && (
-                        <span className="text-mint-300"> with AI</span>
+                        <span className="text-mint-500"> with AI</span>
                       )}
                     </td>
                   </tr>
@@ -230,19 +189,18 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800 px-6 py-10">
+      <footer className="border-t border-border bg-white px-6 py-10">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <p className="text-center text-sm text-slate-500 sm:text-left">
+          <p className="text-center text-sm text-gray-600 sm:text-left">
             © SmartCo 2025 — smart-co.co.uk — AI Enabled Strategic Sourcing
           </p>
           <img
-            src="/smartco-logo-white.png"
+            src="/smartco-logo.png"
             alt="SmartCo"
-            className="h-6 w-auto opacity-90"
+            className="h-6 w-auto"
             onError={(e) => {
               e.currentTarget.onerror = null
-              e.currentTarget.src = '/smartco-logo-white.svg'
+              e.currentTarget.src = '/smartco-logo.svg'
             }}
           />
         </div>

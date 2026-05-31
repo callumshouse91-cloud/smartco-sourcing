@@ -23,7 +23,7 @@ export default function AIEvaluation() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-2.5">
-            <h1 className="font-display text-[28px] font-bold text-white">
+            <h1 className="font-display text-[28px] font-bold text-navy">
               AI Evaluation Engine
             </h1>
             <span className="relative flex h-2 w-2">
@@ -31,7 +31,7 @@ export default function AIEvaluation() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-mint-300" />
             </span>
           </div>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-gray-600">
             6,847 pages analysed across 14 suppliers | Powered by SmartCo AI
           </p>
         </div>

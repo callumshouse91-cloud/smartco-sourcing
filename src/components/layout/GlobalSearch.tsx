@@ -54,27 +54,24 @@ export default function GlobalSearch({ open, onClose }: GlobalSearchProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center bg-navy/80 px-4 pt-[20vh] backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center bg-navy/40 px-4 pt-[20vh] backdrop-blur-sm"
       onClick={onClose}
     >
-      <div
-        className="w-full max-w-lg rounded-xl border border-slate-700/50 bg-[#1a2d4a] shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center gap-3 border-b border-slate-700/50 px-4 py-3">
-          <Search size={18} className="shrink-0 text-slate-500" />
+      <div className="card w-full max-w-lg shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-3 border-b border-border px-4 py-3">
+          <Search size={18} className="shrink-0 text-slate-400" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search suppliers, requirements, documents..."
-            className="flex-1 bg-transparent text-sm text-white placeholder:text-slate-500 focus:outline-none"
+            className="flex-1 bg-transparent text-sm text-navy placeholder:text-slate-400 focus:outline-none"
           />
           <button
             type="button"
             onClick={onClose}
-            className="text-slate-500 hover:text-white"
+            className="text-slate-400 hover:text-navy"
             aria-label="Close search"
           >
             <X size={18} />
@@ -87,23 +84,22 @@ export default function GlobalSearch({ open, onClose }: GlobalSearchProps) {
                 <Link
                   to={result.href}
                   onClick={onClose}
-                  className="flex items-center justify-between px-4 py-3 transition-colors hover:bg-[#0f1e35]"
+                  className="flex items-center justify-between px-4 py-3 transition-colors hover:bg-surface"
                 >
                   <div>
-                    <p className="text-sm font-medium text-white">{result.title}</p>
-                    <p className="text-xs text-slate-400">{result.subtitle}</p>
+                    <p className="text-sm font-medium text-navy">{result.title}</p>
+                    <p className="text-xs text-gray-600">{result.subtitle}</p>
                   </div>
-                  <span className="text-xs text-smartco-400">{result.action} →</span>
+                  <span className="text-xs text-smartco-500">{result.action} →</span>
                 </Link>
               </li>
             ))}
           </ul>
         )}
         {!showResults && (
-          <p className="px-4 py-6 text-center text-xs text-slate-500">
-            Press <kbd className="rounded bg-slate-700 px-1.5 py-0.5">/</kbd> to
-            search · <kbd className="rounded bg-slate-700 px-1.5 py-0.5">Esc</kbd> to
-            close
+          <p className="px-4 py-6 text-center text-xs text-slate-400">
+            Press <kbd className="rounded bg-surface px-1.5 py-0.5">/</kbd> to search ·{' '}
+            <kbd className="rounded bg-surface px-1.5 py-0.5">Esc</kbd> to close
           </p>
         )}
       </div>

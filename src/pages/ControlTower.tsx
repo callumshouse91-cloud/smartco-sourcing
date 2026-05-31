@@ -17,10 +17,10 @@ export default function ControlTower() {
       {/* Page header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="font-display text-[28px] font-bold text-white">
+          <h1 className="font-display text-[28px] font-bold text-navy">
             AI Sourcing Control Tower
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-gray-600">
             Technology Platform Sourcing — Heathrow Airport | RFP Active
           </p>
         </div>

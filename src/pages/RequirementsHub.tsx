@@ -30,10 +30,10 @@ export default function RequirementsHub() {
       {/* Page header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="font-display text-[28px] font-bold text-white">
+          <h1 className="font-display text-[28px] font-bold text-navy">
             Requirements Hub
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-gray-600">
             247 requirements | 94% traced | Last AI review: today at 09:14
           </p>
         </div>

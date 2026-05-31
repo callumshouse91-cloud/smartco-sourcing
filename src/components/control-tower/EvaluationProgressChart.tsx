@@ -17,8 +17,8 @@ const suppliers = [
 
 export default function EvaluationProgressChart() {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
-      <h3 className="mb-5 text-[15px] font-bold text-white">
+    <div className="card p-5">
+      <h3 className="mb-5 text-[15px] font-bold text-navy">
         Supplier Evaluation Progress
       </h3>
       <div className="flex gap-4">
@@ -49,7 +49,7 @@ export default function EvaluationProgressChart() {
               <Bar
                 dataKey="remaining"
                 stackId="progress"
-                fill="#334155"
+                fill="#e0e4ec"
                 radius={[0, 4, 4, 0]}
                 barSize={18}
               />
@@ -60,7 +60,7 @@ export default function EvaluationProgressChart() {
           {suppliers.map((s) => (
             <span
               key={s.name}
-              className="rounded-md bg-smartco-500/15 px-2 py-0.5 text-center text-xs font-semibold text-white"
+              className="rounded-md bg-smartco-500/10 px-2 py-0.5 text-center text-xs font-semibold text-navy"
             >
               {s.score}
             </span>

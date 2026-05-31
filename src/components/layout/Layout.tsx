@@ -20,7 +20,7 @@ export default function Layout() {
         <Sidebar />
         <div className="flex min-w-0 flex-1 flex-col">
           <TopBar />
-          <main className="flex-1 bg-[#0f1e35]">
+          <main className="flex-1 bg-surface">
             <AnimatePresence mode="wait">
               <motion.div
                 key={location.pathname}

@@ -28,10 +28,15 @@ export default {
           brand: '#e6d343',
         },
         navy: '#0a1628',
+        surface: '#f4f6fb',
+        border: '#e0e4ec',
       },
       fontFamily: {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Outfit', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        card: '0 1px 3px rgba(0, 0, 0, 0.06)',
       },
     },
   },

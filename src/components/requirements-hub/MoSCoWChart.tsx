@@ -8,8 +8,10 @@ const data = [
 
 export default function MoSCoWChart() {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
-      <h3 className="mb-4 text-[15px] font-bold text-white">MoSCoW Breakdown</h3>
+    <div className="card p-5">
+      <h3 className="mb-4 font-display text-[15px] font-bold text-navy">
+        MoSCoW Breakdown
+      </h3>
       <ResponsiveContainer width="100%" height={180}>
         <PieChart>
           <Pie
@@ -36,9 +38,9 @@ export default function MoSCoWChart() {
                 className="h-2.5 w-2.5 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-slate-400">{item.name}</span>
+              <span className="text-gray-600">{item.name}</span>
             </div>
-            <span className="font-medium text-white">{item.value}</span>
+            <span className="font-medium text-navy">{item.value}</span>
           </div>
         ))}
       </div>

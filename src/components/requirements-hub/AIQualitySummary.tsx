@@ -3,13 +3,13 @@ const qualityStats = [
     icon: '✓',
     count: 219,
     label: 'Clear and unambiguous',
-    color: 'text-mint-300',
+    color: 'text-mint-500',
   },
   {
     icon: '⚠',
     count: 18,
     label: 'Vague — may generate inconsistent supplier responses',
-    color: 'text-amber-400',
+    color: 'text-amber-500',
   },
   {
     icon: '✗',
@@ -21,14 +21,14 @@ const qualityStats = [
     icon: 'ℹ',
     count: 4,
     label: 'Duplicate detected',
-    color: 'text-smartco-400',
+    color: 'text-smartco-500',
   },
 ]
 
 export default function AIQualitySummary() {
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a] p-5">
-      <h3 className="mb-4 text-[15px] font-bold text-white">
+    <div className="card p-5">
+      <h3 className="mb-4 font-display text-[15px] font-bold text-navy">
         AI Requirement Analysis
       </h3>
       <div className="space-y-3">
@@ -37,7 +37,7 @@ export default function AIQualitySummary() {
             <span className={`w-4 shrink-0 text-sm font-bold ${stat.color}`}>
               {stat.icon}
             </span>
-            <p className="text-sm leading-snug text-slate-400">
+            <p className="text-sm leading-snug text-gray-600">
               <span className={`font-semibold ${stat.color}`}>
                 {stat.count} requirements
               </span>

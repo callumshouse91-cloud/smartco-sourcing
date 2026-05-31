@@ -29,37 +29,37 @@ export default function TraceAnalysisTable({ rows }: TraceAnalysisTableProps) {
 
   return (
     <FadeIn>
-      <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a]">
-        <div className="flex flex-col gap-3 border-b border-slate-700/50 p-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="card overflow-hidden">
+        <div className="flex flex-col gap-3 border-b border-[#e0e4ec] p-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
-            <h3 className="text-[15px] font-bold text-white">
+            <h3 className="text-[15px] font-bold text-navy">
               Requirement Trace Analysis
             </h3>
-            <span className="rounded-full bg-smartco-500/15 px-2 py-0.5 text-[11px] font-medium text-smartco-400">
+            <span className="rounded-full bg-smartco-500/10 px-2 py-0.5 text-[11px] font-medium text-smartco-500">
               247 requirements
             </span>
           </div>
           <div className="relative w-full sm:w-64">
             <Search
               size={16}
-              className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-slate-500"
+              className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
             />
             <input
               type="text"
               placeholder="Filter requirements..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-slate-700/60 bg-[#0f1e35] py-2 pr-3 pl-9 text-sm text-white placeholder:text-slate-500 focus:border-smartco-500/50 focus:outline-none"
+              className="w-full rounded-lg border border-[#e0e4ec] bg-white py-2 pr-3 pl-9 text-sm text-navy placeholder:text-gray-400 focus:border-smartco-500 focus:outline-none"
             />
           </div>
         </div>
-        <p className="px-5 pt-2 text-right text-[11px] text-slate-500 md:hidden">
+        <p className="px-5 pt-2 text-right text-[11px] text-gray-500 md:hidden">
           → scroll
         </p>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[800px] text-left text-sm">
             <thead>
-              <tr className="border-b border-slate-700/50 bg-[#0f1e35]/60 text-xs font-medium text-slate-500">
+              <tr className="border-b border-[#e0e4ec] bg-surface text-xs font-medium text-gray-600">
                 <th className="px-4 py-3">Requirement ID</th>
                 <th className="px-4 py-3">Summary</th>
                 <th className="px-4 py-3">AI Assessment</th>
@@ -71,28 +71,28 @@ export default function TraceAnalysisTable({ rows }: TraceAnalysisTableProps) {
               {filtered.map((row) => (
                 <tr
                   key={row.id}
-                  className={`border-b border-slate-700/30 last:border-0 hover:bg-[#0f1e35]/40 ${
+                  className={`border-b border-[#e0e4ec] last:border-0 hover:bg-surface ${
                     row.flagged
                       ? 'border-l-[3px] border-l-amber-500'
                       : 'border-l-[3px] border-l-transparent'
                   }`}
                 >
-                  <td className="px-4 py-3.5 font-mono text-xs text-smartco-400">
+                  <td className="px-4 py-3.5 font-mono text-xs text-smartco-500">
                     {row.id}
                   </td>
-                  <td className="px-4 py-3.5 font-medium text-white">
+                  <td className="px-4 py-3.5 font-medium text-navy">
                     {row.summary}
                   </td>
-                  <td className="max-w-sm px-4 py-3.5 text-slate-400">
+                  <td className="max-w-sm px-4 py-3.5 text-gray-600">
                     <TypewriterText text={row.assessment} />
                   </td>
-                  <td className="px-4 py-3.5 font-semibold text-white">
+                  <td className="px-4 py-3.5 font-semibold text-navy">
                     {row.score}%
                   </td>
                   <td className="px-4 py-3.5">
                     <button
                       type="button"
-                      className="font-mono text-xs text-slate-400 transition-colors hover:text-mint-300"
+                      className="font-mono text-xs text-gray-600 transition-colors hover:text-mint-500"
                     >
                       {row.evidence} {row.flagged ? '⚠' : '✓'}
                     </button>

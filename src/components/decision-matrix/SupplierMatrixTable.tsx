@@ -36,14 +36,14 @@ export default function SupplierMatrixTable({
 
   return (
     <FadeIn>
-      <div className="rounded-xl border border-slate-700/50 bg-[#1a2d4a]">
-        <p className="px-4 pt-3 text-right text-[11px] text-slate-500 md:hidden">
+      <div className="card overflow-hidden">
+        <p className="px-4 pt-3 text-right text-[11px] text-gray-500 md:hidden">
           → scroll
         </p>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[1000px] text-left text-sm">
-            <thead className="sticky top-0 z-10 bg-[#0f1e35]">
-              <tr className="border-b border-slate-700/50 text-xs font-medium text-slate-500">
+            <thead className="sticky top-0 z-10 bg-surface">
+              <tr className="border-b border-border text-xs font-medium text-gray-500">
                 <th className="px-4 py-3">Supplier</th>
                 <th className="px-4 py-3">Overall</th>
                 <th className="px-4 py-3">Technical</th>
@@ -60,11 +60,11 @@ export default function SupplierMatrixTable({
                 <tr
                   key={row.name}
                   onClick={() => onSelect(row.name)}
-                  className={`cursor-pointer border-b border-slate-700/30 transition-colors last:border-0 hover:bg-smartco-500/5 ${
-                    index % 2 === 0 ? 'bg-[#1a2d4a]' : 'bg-[#162540]'
-                  } ${selected === row.name ? 'ring-1 ring-inset ring-smartco-500/50' : ''}`}
+                  className={`cursor-pointer border-b border-border transition-colors last:border-0 hover:bg-smartco-50 ${
+                    index % 2 === 0 ? 'bg-white' : 'bg-[#f9fafc]'
+                  } ${selected === row.name ? 'ring-1 ring-inset ring-smartco-500/40' : ''}`}
                 >
-                  <td className="px-4 py-3 font-medium text-white">{row.name}</td>
+                  <td className="px-4 py-3 font-medium text-navy">{row.name}</td>
                   <td className="px-4 py-3">
                     <ScoreCell value={row.overall} />
                   </td>
@@ -85,7 +85,7 @@ export default function SupplierMatrixTable({
                   >
                     {row.risk}
                   </td>
-                  <td className="px-4 py-3 text-slate-400">{row.costBand}</td>
+                  <td className="px-4 py-3 text-gray-600">{row.costBand}</td>
                   <td className="px-4 py-3">
                     <PulseBadge
                       className={`inline-block rounded-full border px-2.5 py-0.5 text-[11px] font-bold tracking-wide ${recommendationBadgeClass(row.recommendation)}`}
@@ -98,11 +98,11 @@ export default function SupplierMatrixTable({
             </tbody>
           </table>
         </div>
-        <div className="border-t border-slate-700/50 px-4 py-3">
+        <div className="border-t border-border px-4 py-3">
           <button
             type="button"
             onClick={onToggleShowAll}
-            className="text-sm font-medium text-smartco-400 transition-colors hover:text-smartco-300"
+            className="text-sm font-medium text-smartco-500 transition-colors hover:text-smartco-600"
           >
             {showAll ? 'Show top 8 suppliers' : 'Show all 14 suppliers'}
           </button>
