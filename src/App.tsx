@@ -5,6 +5,7 @@ import ControlTower from './pages/ControlTower'
 import DecisionMatrix from './pages/DecisionMatrix'
 import ExecPack from './pages/ExecPack'
 import IntelligenceLibrary from './pages/IntelligenceLibrary'
+import Demo from './pages/Demo'
 import LandingPage from './pages/LandingPage'
 import RequirementsHub from './pages/RequirementsHub'
 import SupplierWorkspace from './pages/SupplierWorkspace'
@@ -14,6 +15,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/demo" element={<Demo />} />
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<ControlTower />} />
         <Route path="/requirements" element={<RequirementsHub />} />

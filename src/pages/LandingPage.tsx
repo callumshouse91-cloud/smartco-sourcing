@@ -91,7 +91,7 @@ export default function LandingPage() {
             Enter Control Tower →
           </Link>
           <Link
-            to="/ai-evaluation"
+            to="/demo"
             className="rounded-lg border border-smartco-500 bg-white px-8 py-3.5 text-center font-display text-base font-semibold text-smartco-500 transition-colors hover:bg-smartco-50"
           >
             Watch 90-sec Demo
